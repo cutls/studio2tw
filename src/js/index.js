@@ -4,10 +4,9 @@ import axios from 'axios'
 window.onload = main
 const getUrlParams = () => window.location.search.substring(1).split('&').reduce((result, query) => { const [k, v] = query.split('='); result[k] = decodeURI(v); return result; }, {})
 async function main() {
-    console.log(getUrlParams())
     const target = getUrlParams().url
     const bgColor = getUrlParams().bgColor || 'fff'
-    document.querySelector('html').style.backgroundColor = `#${bgColor}`
+    document.querySelector('html').style.backgroundColor = `#${encodeURI(bgColor)}`
     if (!target) return false
     try {
         const raw = await axios.get(`/.netlify/functions/title?url=${target}`)

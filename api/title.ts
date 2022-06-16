@@ -9,7 +9,7 @@ export const handler: Handler = async (event: APIGatewayEvent, context: Context,
 		const { data } = await axios.get(url)
 
 		const $ = cheerio.load(data)
-		const titleE = $('title').text()
+		const titleE = $('title').text() || ''
 		const title = titleE.replace(/\n/g, '').replace(/\s\s/g, '')
 		return {
 			headers: {
