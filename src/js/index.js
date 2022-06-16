@@ -15,6 +15,7 @@ async function main() {
         const url = `http://twitter.com/share?url=${encodeURI(target)}&text=${encodeURI(title)}`
         a.setAttribute('href', url)
     } catch (e) {
-
+        const url = `http://twitter.com/share?url=${encodeURI(target)}`
+        a.setAttribute('href', url)
     }
 }
