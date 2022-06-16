@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "target": "ES2019",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "lib": [
+        "ES2020"
+      ],
+      "noEmit": true,
+      "resolveJsonModule": true
+    }
+  }
