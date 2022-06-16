@@ -7,7 +7,7 @@ async function main() {
     const target = getUrlParams().url
     if (!target) return false
     try {
-        const raw = await axios.get(`http://localhost:9000/.netlify/functions/title?url=${target}`)
+        const raw = await axios.get(`/.netlify/functions/title?url=${target}`)
         const title = raw.data.title || ''
         const a = document.querySelector('.share')
         const url = `http://twitter.com/share?url=${encodeURI(target)}&text=${encodeURI(title)}`
