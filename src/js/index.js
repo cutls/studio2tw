@@ -5,6 +5,8 @@ window.onload = main
 const getUrlParams = () => window.location.search.substring(1).split('&').reduce((result, query) => { const [k, v] = query.split('='); result[k] = decodeURI(v); return result; }, {})
 async function main() {
     const target = getUrlParams().url
+    const url = `http://twitter.com/share?url=${encodeURI(target)}`
+    a.setAttribute('href', url)
     const bgColor = getUrlParams().bgColor || 'fff'
     document.querySelector('html').style.backgroundColor = `#${encodeURI(bgColor)}`
     if (!target) return false
