@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "For GitHub README",
   "scripts": {
+    "build": "yarn api:build && yarn front:build",
     "front:build": "webpack",
     "front:serve": "webpack serve",
     "api:build": "netlify-lambda build ./api",
