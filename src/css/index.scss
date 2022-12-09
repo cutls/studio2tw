@@ -2,6 +2,9 @@ html {
     display: flex;
     justify-content: center;
 }
+.share.loading {
+    background-color: #868686;
+}
 .share {
     text-decoration: none;
     color: white;
@@ -10,4 +13,7 @@ html {
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
+}
+.hide {
+    display: none;
 }

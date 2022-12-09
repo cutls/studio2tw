@@ -6,6 +6,10 @@ const getUrlParams = () => window.location.search.substring(1).split('&').reduce
 async function main() {
     const a = document.querySelector('.share')
     const target = getUrlParams().url
+    if (!target) {
+        a.classList.add('hide')
+        return
+    }
     const url = `http://twitter.com/share?url=${encodeURI(target)}`
     a.setAttribute('href', url)
     const bgColor = getUrlParams().bgColor || 'fff'
@@ -19,5 +23,8 @@ async function main() {
     } catch (e) {
         const url = `http://twitter.com/share?url=${encodeURIComponent(target)}`
         a.setAttribute('href', url)
+    } finally {
+        a.classList.remove('loading')
+        a.innerHTML = 'Twitterでシェア'
     }
 }
