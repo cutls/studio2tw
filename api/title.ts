@@ -11,6 +11,7 @@ export const handler: Handler = async (event: APIGatewayEvent, context: Context,
 		const $ = cheerio.load(data)
 		const titleE = $('title').text() || ''
 		const title = titleE.replace(/\n/g, '').replace(/\s\s/g, '')
+		const titleEncoded = encodeURIComponent(title)
 		return {
 			headers: {
 				'Access-Control-Allow-Headers': '*',
@@ -19,7 +20,7 @@ export const handler: Handler = async (event: APIGatewayEvent, context: Context,
 				'Content-Type': 'application/json'
 			},
 			statusCode: 200,
-			body: JSON.stringify({ success: true, title })
+			body: JSON.stringify({ success: true, title: titleEncoded })
 		}
 	} catch (e) {
 		return {
